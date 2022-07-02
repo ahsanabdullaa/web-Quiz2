@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script src="./popper.min.js"></script>
+    <script src="./bootstrap.min.js"></script>
+    <script src="./jqcrud.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <link rel="stylesheet" href="./jqstyles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Task Manager App</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Modal trigger button -->
+    <button
+      type="button"
+      class="btn btn-primary float-right m-5"
+      data-toggle="modal"
+      data-target="#addModal"
+    >
+      Add Task
+    </button>
+
+    <!-- Modal for adding a record-->
+    <div
+      class="modal fade"
+      id="addModal"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdrop"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Add Task</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="addTask">Task</label>
+              <input
+                type="text"
+                class="form-control"
+                name="addTask"
+                id="addTask"
+                aria-describedby="addTaskHelp"
+                placeholder="Task"
+              />
+              <small id="addTaskHelp" class="form-text text-muted"
+                >Enter Task</small
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="addDate">Date</label>
+              <input
+                type="text"
+                class="form-control"
+                name="addDate"
+                id="addDate"
+                aria-describedby="addDateHelp"
+                placeholder="Date of Task"
+              />
+              <small id="addBodyHelp" class="form-text text-muted"
+                >Enter Date</small
+              >
+            </div>
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="addStatus">Status</label>
+                </div>
+                <select class="custom-select" id="addStatus">
+                  <option selected>Choose...</option>
+                  <option value="Ongoing">Ongoing</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+            </div>
+            <button id="addBtn" class="btn btn-info float-right">
+              Add Task
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal For updating a record -->
+    <div
+      class="modal fade"
+      id="updateModal"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdrop"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="updateId" />
+            <div class="form-group">
+              <label for="updateTitle">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                name="updateTask"
+                id="updateTask"
+                aria-describedby="updateTaskHelp"
+                placeholder="Title of Task"
+              />
+              <small id="updateTitleHelp" class="form-text text-muted"
+                >Enter Task
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="body">Date</label>
+              <input
+                type="text"
+                class="form-control"
+                name="updateDate"
+                id="updateDate"
+                aria-describedby="updateDateHelp"
+                placeholder="Description of Recipe"
+              />
+              <small id="updateDateHelp" class="form-text text-muted"
+                >Enter Date</small
+              >
+            </div>
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="updateStatus">Status</label>
+                </div>
+                <select class="custom-select" id="updateStatus">
+                  <option selected>Choose...</option>
+                  <option value="Ongoing">Ongoing</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+            </div>
+            <button id="updateBtn" class="btn btn-info float-right">
+              update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-tasks mt-5 mb-5">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        
+        <a class="navbar-brand" href="#">
+          <i class="bi bi-clipboard-check"></i>
+          Task Manager App
+        </a>
+        </div>
+      </div>
+    </nav>
+
+    </div>
+    <table class="table container">
+      <thead>
+        <tr>
+          <th>Delete</th>
+          <th>Edit</th>
+          <th>Task</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tasks">
+  
+      </tbody>
+    </table>
+  </body>
+</html>

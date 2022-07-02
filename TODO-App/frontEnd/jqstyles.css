@@ -1,0 +1,9 @@
+.recipe{
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+
+.recipe .btn{
+    margin: 2px;
+}
+
